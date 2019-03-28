@@ -1,3 +1,13 @@
+body,html{
+  width: 100vw;
+  height: 100vh;
+}
+.rel-cargando{
+  display: flex;
+  justify-content: center !important;
+  align-self: center !important;
+}
+
 .App {
   text-align: center;
 }

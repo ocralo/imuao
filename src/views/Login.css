@@ -1,11 +1,17 @@
 html,
 body {
   margin: 0px;
-
+  background: #282c34;
   height: 100%;
 }
 
+.col-md-6.border.rounded-right.d-flex.align-items-center.justify-content-center {
+    background: #ffffff;
+}
 
+.rel-card{
+  width: 50%;
+}
 
 .rel-container {
   height: 100vh;
