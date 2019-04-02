@@ -21,7 +21,7 @@ export default class Header extends Component {
             className="d-inline-block align-top"
             alt=""
           />
-          Bootstrap
+          IMUAO
         </div>
         <span className="navbar-text">{this.props.name}</span>
         <form className="form-inline">
