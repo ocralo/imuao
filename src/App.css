@@ -1,8 +1,13 @@
-body,html{
+body,
+html {
   width: 100vw;
   height: 100vh;
+  font-family: "Roboto", sans-serif !important;
 }
-.rel-cargando{
+#root{
+  height: 100%;
+}
+.rel-cargando {
   display: flex;
   justify-content: center !important;
   align-self: center !important;

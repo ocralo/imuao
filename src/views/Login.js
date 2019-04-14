@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css";
 import "bootstrap/dist/css/bootstrap.css";
-import logo from "../logo.svg";
-import "../App.css";
 import * as firebase from "firebase";
 
 export default class Login extends Component {

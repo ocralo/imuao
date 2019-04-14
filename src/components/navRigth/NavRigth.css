@@ -1,0 +1,24 @@
+.rel-NavRigth {
+  background-color: #b71c1c;
+}
+
+.rel-title-NavRigth {
+  color: white;
+  margin-left: 1em;
+}
+
+.rel-item-nav-NavRigth h5 {
+  font-weight: 400 !important;
+  color: #ffffff;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  border-left: 0.3em solid #FFC107;
+  background-color: #cf5215;
+  border-radius: 0px;
+}
+
+.rel-nav-link {
+  color: white;
+}
