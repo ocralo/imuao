@@ -12,6 +12,8 @@ export default class Login extends Component {
       email: "",
       password: ""
     };
+    this.email = React.createRef();
+    this.password = React.createRef();
   }
   handleSumit = event => {
     var me = this;
@@ -24,19 +26,18 @@ export default class Login extends Component {
         me.props.history.push("/home");
       })
       .catch(function(error) {
-        var errorCode = error.code;
         var errorMessage = error.message;
         console.log("Error", errorMessage);
       });
     //this.props.history.push('/Home');
   };
   handleChange = event => {
-    console.log(event.target.id);
+    console.log(this.state.password + "----" + this.state.email);
     if (event.target.id === "correo") {
-      this.setState({ email: event.target.value });
+      this.setState({ email: this.email.current.value });
     } else if (event.target.id === "contraseña") {
       this.setState({
-        password: event.target.value
+        password: this.password.current.value
       });
     }
   };
@@ -46,18 +47,25 @@ export default class Login extends Component {
         <div className="row h-100">
           <div className="col-md-6 rel-imagen-iniciar-sesion rounded-left ">
             <div className="container d-flex justify-content-center align-items-center flex-column h-100">
-              <h2 className="rel-titulo d-none d-md-block">REACT JS</h2>
-              <img src={logo} className="App-logo" alt="logo" />
+              <img
+                src="./assets/img/Logo-UAO.png"
+                className="App-logo"
+                alt="logo"
+              />
             </div>
           </div>
           <div className="col-md-6 border rounded-right d-flex align-items-center justify-content-center">
             <div className="container ">
               <div className="card p-4 w-100 border-0 rel-card">
                 <div className="card-body">
-                  <h3 className="card-title">Iniciar Sesion</h3>
-                  <h6 className="card-subtitle mb-2 text-muted d-none d-md-block">
-                    Para usar nuestra aplicacion por favor iniciar sesion
-                  </h6>
+                  <div className="mb-5">
+                    <h1 className="card-title rel-text-center">
+                      Iniciar Sesion
+                    </h1>
+                    <h6 className="card-subtitle mb-2 text-muted d-none d-md-block rel-text-center">
+                      Para usar nuestra aplicacion por favor iniciar sesion
+                    </h6>
+                  </div>
                   <form onSubmit={this.handleSumit}>
                     <div className="form-group">
                       <label htmlFor="exampleInputEmail1">
@@ -69,6 +77,7 @@ export default class Login extends Component {
                           className="form-control"
                           type="email"
                           id="correo"
+                          ref={this.email}
                           value={this.state.email}
                           onChange={this.handleChange}
                         />
@@ -82,13 +91,16 @@ export default class Login extends Component {
                       </small>
                     </div>
                     <div className="form-group">
-                      <label htmlFor="exampleInputPassword1">Contraseña</label>
+                      <label htmlFor="exampleInputPassword1">
+                        Contraseña
+                      </label>
                       <br />
                       <label className="pure-material-textfield-outlined rel-input">
                         <input
                           className="form-control"
                           type="password"
                           id="contraseña"
+                          ref={this.password}
                           value={this.state.password}
                           onChange={this.handleChange}
                         />
@@ -97,7 +109,7 @@ export default class Login extends Component {
                       <div className="d-flex justify-content-end">
                         <button
                           type="submit"
-                          className="btn btn-dark bg-dark btn-lg m-2"
+                          className="btn btn-danger btn-lg m-2 pl-4 pr-4"
                           value="Submit"
                         >
                           Ingresar
