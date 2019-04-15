@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Login.css";
-import "bootstrap/dist/css/bootstrap.css";
 import * as firebase from "firebase";
 
 export default class Login extends Component {
@@ -58,7 +57,7 @@ export default class Login extends Component {
                 <div className="card-body">
                   <div className="mb-5">
                     <h1 className="card-title rel-text-center">
-                      Iniciar Sesion
+                      Iniciar Sesión
                     </h1>
                     <h6 className="card-subtitle mb-2 text-muted d-none d-md-block rel-text-center">
                       Para usar nuestra aplicacion por favor iniciar sesion

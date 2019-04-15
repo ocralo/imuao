@@ -14,11 +14,33 @@
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  border-left: 0.3em solid #FFC107;
+  border-left: 0.3em solid #ffc107;
   background-color: #cf5215;
   border-radius: 0px;
 }
 
+.nav-pills .nav-link.active > div > .rel-nav-icon {
+  color: white;
+}
+
+.rel-nav-icon {
+  font-size: 2em;
+  color: #f05545;
+}
+
+.rel-search-icon-header {
+  margin-right: -1em;
+  z-index: 10;
+}
+
 .rel-nav-link {
   color: white;
+}
+
+.rel-nav-link:hover {
+  color: white;
+}
+
+.rel-img-nav-link {
+  height: 2em;
 }

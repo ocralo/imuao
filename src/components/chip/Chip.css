@@ -1,0 +1,11 @@
+.rel-chip{
+width: 7em;
+height: 2em;
+}
+
+.rel-chip-img{
+    height: 1.6em;
+    margin-left: -0.4em;
+    width: auto;
+    clip-path: circle(35% at center);
+}

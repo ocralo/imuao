@@ -1,0 +1,47 @@
+.rel-card-background-top {
+  height: 35em;
+}
+
+.rel-title-card-profile {
+  width: 100%;
+  height: 10em;
+  background-image: url("/assets/img/triangulo-fondo-card.svg"),
+    url("/assets/img/triangulo-fondo-card.png");
+  background-color: #ffffff;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.rel-text-title-card{
+    margin-bottom: 1em;
+}
+
+.rel-imagen-profile-card {
+    margin-top: 4em;
+  height: 7em;
+  width: 7em;
+  position: absolute;
+  -webkit-clip-path: polygon(
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0% 75%,
+    0% 25%
+  );
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.rel-body-card-profile{
+    margin-top: 2.5em;
+}
+
+.rel-title-card-body{
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.rel-profile-card-personal-data{
+    margin-bottom: 0.5em;
+}
