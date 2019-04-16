@@ -1,15 +1,19 @@
 input.form-control.mr-sm-2 {
   border: 0px;
   padding-left: 1.3em;
-  width: 25em;
+  width: 19em;
 }
 
-.rel-icon-header{
-    color: #BCBCCB;
+.rel-icon-header {
+  color: #bcbccb;
 }
 
 .rel-img-profile-header {
   height: 3em;
   width: auto;
   clip-path: circle(35% at center);
+}
+
+.rel-navbar {
+  background-color: white;
 }

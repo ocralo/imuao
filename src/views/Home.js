@@ -8,7 +8,7 @@ import firebase from "firebase";
 export default class Home extends Component {
   render() {
     return (
-      <div className="container-fluid m-0 p-0 h-100">
+      <div className="container-fluid m-0 p-0 h-100 ">
         <div className="row m-0 p-0 w-100 h-100">
           <div className="col-md-2 m-0 p-0">
             <NavRigth />

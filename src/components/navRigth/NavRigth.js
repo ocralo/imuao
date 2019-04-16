@@ -4,16 +4,16 @@ import "./NavRigth.css";
 export default class NavRigth extends Component {
   render() {
     return (
-      <div className="container-fluid m-0 p-0 w-100 h-100 pt-2 rel-NavRigth shadow-sm">
-        <div className="ml-4 rel-title-NavRigth">
-          <h1>IMUAO</h1>
-        </div>
+      <div className="container-fluid m-0 p-0 h-100  rel-NavRigth">
         <div
-          className="nav flex-column nav-pills"
+          className="nav flex-column nav-pills pt-2 sticky-top"
           id="v-pills-tab"
           role="tablist"
           aria-orientation="vertical"
         >
+          <div className="ml-4 rel-title-NavRigth">
+            <h1>IMUAO</h1>
+          </div>
           <a
             className="nav-link active p-3 rel-nav-link"
             id="v-pills-home-tab"
