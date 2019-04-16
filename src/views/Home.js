@@ -6,6 +6,28 @@ import Card from "../components/card/Card";
 import firebase from "firebase";
 
 export default class Home extends Component {
+  constructor() {
+    super();
+    this.state = {
+      card: {}
+    };
+    this.title = React.createRef();
+  }
+
+  componentWillMount() {
+    const attemptCard = firebase
+      .database()
+      .ref()
+      .child("users");
+
+    attemptCard.on("value", snapshot => {
+      this.setState({
+        card: snapshot.val()
+      });
+      console.log(this.state.card);
+    });
+  }
+
   render() {
     return (
       <div className="container-fluid m-0 p-0 h-100 ">
