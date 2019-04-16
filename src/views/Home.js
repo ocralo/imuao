@@ -28,16 +28,17 @@ export default class Home extends Component {
         var jsonCard = {
           code: val.code,
           email: val.email,
-          lastname: val.lastName,
+          lastname: val.lastname,
           name: val.name,
-          phone: val.phone
+          phone: val.phone,
+          skills: val.skills
         };
         auxCard.push(jsonCard);
         me.setState({
           card: auxCard
         });
 
-        console.log(snapshot.val());
+        console.log(jsonCard);
       });
       /*this.setState({
         card: snapshot.val(),
@@ -60,14 +61,14 @@ export default class Home extends Component {
                 <div className="col-12">
                   <div className="row">
                     {this.state.card.map((key, i) => {
-                      console.log(key);
                       return (
                         <Card
                           name={key.name}
-                          lastName={key.lastName}
+                          lastName={key.lastname}
                           code={key.code}
                           email={key.email}
                           phone={key.phone}
+                          skills={key.skills}
                         />
                       );
                     })}
