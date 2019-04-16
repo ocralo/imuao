@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Card.css";
 import Chip from "../chip/Chip";
+import BarProgres from "../barProgres/BarProgres";
 
 export default class Card extends Component {
   constructor(props) {
@@ -11,12 +12,33 @@ export default class Card extends Component {
       code: this.props.code,
       email: this.props.email,
       phone: this.props.phone,
-      skills: this.props.skills
+      skillsCard: this.props.skills,
+      skills: [],
+      ux: ""
     };
     this.title = React.createRef();
   }
 
+  componentWillMount() {
+    var me = this;
+    var aux = [];
+    Object.keys(me.state.skillsCard).forEach(function(k) {
+      aux[k] = me.state.skillsCard[k];
+      me.setState({
+        skills: aux
+      });
+    });
+  }
+
+  componentDidMount() {
+    console.log(this.state.skills.FrontEnd);
+  }
+
   render() {
+    var me = this;
+    Object.keys(this.state.skills).forEach(function(k) {
+      console.log(k + " - " + me.state.skills[k]);
+    });
     return (
       <div className="col-md-4 col-sm-10 col-12">
         <div className="border mt-4 rel-card-background-top shadow">
@@ -44,15 +66,22 @@ export default class Card extends Component {
                 {this.state.phone}
               </div>
               <div className="rel-body-card-profile-data">
-                <i className="far fa-id-badge mr-2" />
+                <i className="far fa-id-badge mr-2 ml-1" />
                 {this.state.code}
               </div>
             </div>
             <div className="rel-profile-card-personal-data">
               <h5 className="rel-title-card-body">Habilidades</h5>
-              <div className="rel-body-card-profile-skill">UX</div>
-              <div className="rel-body-card-profile-skill">FrontEnd</div>
-              <div className="rel-body-card-profile-skill">Unity</div>
+              {Object.keys(this.state.skills).map(function(k) {
+                return (
+                  <div className="rel-body-card-profile-skill d-flex justify-content-between mb-2">
+                    {k}{" "}
+                    <BarProgres
+                      percentage={me.state.skills[k]}
+                    />
+                  </div>
+                )
+              })}
             </div>
             <div className="rel-profile-card-personal-data">
               <h5 className="rel-title-card-body">Proyectos</h5>
