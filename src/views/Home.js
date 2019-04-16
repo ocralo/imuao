@@ -9,24 +9,42 @@ export default class Home extends Component {
   constructor() {
     super();
     this.state = {
-      card: {}
+      card: []
     };
     this.title = React.createRef();
   }
 
-  componentWillMount() {
+  componentDidMount = event => {
     const attemptCard = firebase
       .database()
       .ref()
       .child("users");
 
     attemptCard.on("value", snapshot => {
-      this.setState({
-        card: snapshot.val()
+      var me = this;
+      snapshot.forEach(function(Snapshot) {
+        var auxCard = me.state.card;
+        var val = Snapshot.val();
+        var jsonCard = {
+          code: val.code,
+          email: val.email,
+          lastname: val.lastName,
+          name: val.name,
+          phone: val.phone
+        };
+        auxCard.push(jsonCard);
+        me.setState({
+          card: auxCard
+        });
+
+        console.log(snapshot.val());
       });
-      console.log(this.state.card);
+      /*this.setState({
+        card: snapshot.val(),
+        name: snapshot.name
+      });*/
     });
-  }
+  };
 
   render() {
     return (
@@ -41,11 +59,18 @@ export default class Home extends Component {
               <div className="row">
                 <div className="col-12">
                   <div className="row">
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {this.state.card.map((key, i) => {
+                      console.log(key);
+                      return (
+                        <Card
+                          name={key.name}
+                          lastName={key.lastName}
+                          code={key.code}
+                          email={key.email}
+                          phone={key.phone}
+                        />
+                      );
+                    })}
                   </div>
                 </div>
               </div>
