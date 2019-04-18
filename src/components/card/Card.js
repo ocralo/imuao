@@ -14,36 +14,37 @@ export default class Card extends Component {
       phone: this.props.phone,
       skillsCard: this.props.skills,
       skills: [],
-      ux: ""
+      proyectCard: this.props.portfolio,
+      proyect: []
     };
-    this.title = React.createRef();
   }
 
   componentWillMount() {
     var me = this;
     var aux = [];
+    var aux2 = [];
     Object.keys(me.state.skillsCard).forEach(function(k) {
       aux[k] = me.state.skillsCard[k];
       me.setState({
         skills: aux
       });
     });
-  }
 
-  componentDidMount() {
-    console.log(this.state.skills.FrontEnd);
+    Object.keys(me.state.proyectCard).forEach(function(k,i) {
+      aux2[i] = me.state.proyectCard[k].name;
+      me.setState({
+        proyect: aux2
+      });
+    });
   }
 
   render() {
     var me = this;
-    Object.keys(this.state.skills).forEach(function(k) {
-      console.log(k + " - " + me.state.skills[k]);
-    });
     return (
       <div className="col-md-4 col-sm-10 col-12">
         <div className="border mt-4 rel-card-background-top shadow">
-          <div className="d-flex flex-column align-items-center p-4 rel-title-card-profile">
-            <h3 className="rel-text-title-card">
+          <div className="d-flex flex-column align-items-center p-4 rel-title-card-profile text-center">
+            <h3 className="rel-text-title-card d-inline-block text-truncate w-100">
               {this.state.name} {this.state.lastName}
             </h3>
             <div className="rel-imagen-profile-card-out">
@@ -57,15 +58,15 @@ export default class Card extends Component {
           <div className="rel-body-card-profile p-4">
             <div className="rel-profile-card-personal-data">
               <h5 className="rel-title-card-body">Datos personales</h5>
-              <div className="rel-body-card-profile-data">
+              <div className="rel-body-card-profile-data d-inline-block text-truncate w-100">
                 <i className="far fa-envelope mr-2" />
                 {this.state.email}
               </div>
-              <div className="rel-body-card-profile-data">
+              <div className="rel-body-card-profile-data d-inline-block text-truncate w-100">
                 <i className="fas fa-phone mr-2" />
                 {this.state.phone}
               </div>
-              <div className="rel-body-card-profile-data">
+              <div className="rel-body-card-profile-data d-inline-block text-truncate w-100">
                 <i className="far fa-id-badge mr-2 ml-1" />
                 {this.state.code}
               </div>
@@ -74,22 +75,18 @@ export default class Card extends Component {
               <h5 className="rel-title-card-body">Habilidades</h5>
               {Object.keys(this.state.skills).map(function(k) {
                 return (
-                  <div className="rel-body-card-profile-skill d-flex justify-content-between mb-2">
-                    {k}{" "}
-                    <BarProgres
-                      percentage={me.state.skills[k]}
-                    />
+                  <div key={k} className="rel-body-card-profile-skill d-flex justify-content-between mb-2">
+                    {k} <BarProgres percentage={me.state.skills[k]} />
                   </div>
-                )
+                );
               })}
             </div>
             <div className="rel-profile-card-personal-data">
               <h5 className="rel-title-card-body">Proyectos</h5>
               <div className="rel-body-card-profile-proyect d-flex align-content-between flex-wrap">
-                <Chip />
-                <Chip />
-                <Chip />
-                <Chip />
+                {this.state.proyect.map((key) => {
+                  return <Chip key={key} nameProyect={key} />;
+                })}
               </div>
             </div>
           </div>
