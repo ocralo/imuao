@@ -3,6 +3,8 @@ import "./Card.css";
 import Chip from "../chip/Chip";
 import BarProgres from "../barProgres/BarProgres";
 
+
+var me;
 export default class Card extends Component {
   constructor(props) {
     super(props);
@@ -15,14 +17,16 @@ export default class Card extends Component {
       skillsCard: this.props.skills,
       skills: [],
       proyectCard: this.props.portfolio,
-      proyect: []
+      proyect: [],
+      card: this.props.card,
+      modalfunction: this.props.modalfunction,
+      thishome: this.props.thishome
     };
   }
 
   componentWillMount() {
-    var me = this;
-    var aux = [];
-    var aux2 = [];
+    var aux = [], aux2 = [];
+    me = this;
     Object.keys(me.state.skillsCard).forEach(function(k) {
       aux[k] = me.state.skillsCard[k];
       me.setState({
@@ -30,7 +34,7 @@ export default class Card extends Component {
       });
     });
 
-    Object.keys(me.state.proyectCard).forEach(function(k,i) {
+    Object.keys(me.state.proyectCard).forEach(function(k, i) {
       aux2[i] = me.state.proyectCard[k].name;
       me.setState({
         proyect: aux2
@@ -38,11 +42,23 @@ export default class Card extends Component {
     });
   }
 
+  handleClick(e) {
+    me.state.modalfunction(me.state.thishome, me.state.card);
+  }
+
+  /*this.state.modalfunction(
+            this.state.thishome,
+            this.setState.card
+          )*/
+
   render() {
     var me = this;
     return (
       <div className="col-md-4 col-sm-10 col-12">
-        <div className="border mt-4 rel-card-background-top shadow">
+        <div
+          className="border mt-4 rel-card-background-top shadow"
+          onClick={this.handleClick}
+        >
           <div className="d-flex flex-column align-items-center p-4 rel-title-card-profile text-center">
             <h3 className="rel-text-title-card d-inline-block text-truncate w-100">
               {this.state.name} {this.state.lastName}
@@ -73,10 +89,10 @@ export default class Card extends Component {
             </div>
             <div className="rel-profile-card-personal-data">
               <h5 className="rel-title-card-body">Habilidades</h5>
-              {Object.keys(this.state.skills).map(function(k) {
+              {Object.keys(this.state.skills).map((k, i) => {
                 return (
                   <div
-                    key={k}
+                    key={i}
                     className="rel-body-card-profile-skill d-flex justify-content-between mb-2"
                   >
                     {k} <BarProgres percentage={me.state.skills[k]} />
@@ -87,8 +103,14 @@ export default class Card extends Component {
             <div className="rel-profile-card-personal-data">
               <h5 className="rel-title-card-body">Proyectos</h5>
               <div className="rel-body-card-profile-proyect d-flex align-content-between flex-wrap">
-                {this.state.proyect.map(key => {
-                  return <Chip key={key} nameProyect={key} />;
+                {this.state.proyect.map((key, i) => {
+                  return (
+                    <Chip
+                      key={i}
+                      nameProyect={key}
+                      card={this.state.card}
+                    />
+                  );
                 })}
               </div>
             </div>
