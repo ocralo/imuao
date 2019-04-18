@@ -3,13 +3,15 @@ import "./Home.css";
 import Header from "../components/header/Header";
 import NavRigth from "../components/navRigth/NavRigth";
 import Card from "../components/card/Card";
+import ModalCard from "../components/modalCard/ModalCard";
 import firebase from "firebase";
 
 export default class Home extends Component {
   constructor() {
     super();
     this.state = {
-      card: []
+      card: [],
+      user: {}
     };
   }
 
@@ -40,16 +42,21 @@ export default class Home extends Component {
 
         console.log(jsonCard);
       });
-      /*this.setState({
-        card: snapshot.val(),
-        name: snapshot.name
-      });*/
     });
   };
+
+  ModalRender(e, userCard) {
+    /*e.setState({
+      user: userCard
+    });*/
+    console.log(userCard);
+  }
 
   render() {
     return (
       <div className="container-fluid m-0 p-0 h-100 ">
+        <ModalCard
+          carduser={this.state.user}/>
         <div className="row m-0 p-0 w-100 h-100">
           <div className="col-md-2 m-0 p-0">
             <NavRigth />
@@ -71,6 +78,9 @@ export default class Home extends Component {
                           phone={key.phone}
                           skills={key.skills}
                           portfolio={key.portfolio}
+                          card={key}
+                          modalfunction={this.ModalRender}
+                          thishome={this}
                         />
                       );
                     })}
