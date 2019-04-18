@@ -1,6 +1,7 @@
 .rel-chip {
   width: 7em;
   height: 2em;
+  cursor: pointer;
 }
 
 .rel-chip span {
