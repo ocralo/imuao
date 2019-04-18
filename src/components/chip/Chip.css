@@ -1,18 +1,23 @@
-.rel-chip{
-width: 7em;
-height: 2em;
+.rel-chip {
+  width: 7em;
+  height: 2em;
 }
 
-.rel-chip span{
-text-overflow: ellipsis;
-overflow: hidden;
-white-space: nowrap;
-padding-right: 0.5em;
+.rel-chip span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-right: 0.5em;
 }
 
-.rel-chip-img{
-    height: 1.6em;
-    margin-left: -0.4em;
-    width: auto;
-    clip-path: circle(35% at center);
+.rel-chip-img {
+  position: relative;
+  height: 1.6em;
+  left: -0.2em;
+  width: auto;
+  clip-path: circle(35% at center);
+}
+
+.rel-chip-text {
+  font-weight: 500;
 }
