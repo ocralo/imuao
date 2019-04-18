@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Chip.css";
 
+
 export default class Chip extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +11,11 @@ export default class Chip extends Component {
   }
   render() {
     return (
-      <div className="rel-chip d-flex align-items-center border rounded-pill m-1 bg-warning shadow-sm">
+      <div
+        className="rel-chip d-flex align-items-center border rounded-pill m-1 bg-warning shadow-sm"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
         <img
           className="rel-chip-img"
           src="./assets/img/Image_desktop.png"
