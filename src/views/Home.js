@@ -11,7 +11,6 @@ export default class Home extends Component {
     this.state = {
       card: []
     };
-    this.title = React.createRef();
   }
 
   componentDidMount = event => {
@@ -31,7 +30,8 @@ export default class Home extends Component {
           lastname: val.lastname,
           name: val.name,
           phone: val.phone,
-          skills: val.skills
+          skills: val.skills,
+          portfolio: val.portfolio
         };
         auxCard.push(jsonCard);
         me.setState({
@@ -63,12 +63,14 @@ export default class Home extends Component {
                     {this.state.card.map((key, i) => {
                       return (
                         <Card
+                          key={key.code}
                           name={key.name}
                           lastName={key.lastname}
                           code={key.code}
                           email={key.email}
                           phone={key.phone}
                           skills={key.skills}
+                          portfolio={key.portfolio}
                         />
                       );
                     })}
