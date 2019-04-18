@@ -49,7 +49,7 @@ export default class Card extends Component {
             </h3>
             <div className="rel-imagen-profile-card-out">
               <img
-                src="./assets/img/rodrigo.jpg"
+                src="./assets/img/Image_desktop.png"
                 className="rel-imagen-profile-card "
                 alt=""
               />
@@ -75,7 +75,10 @@ export default class Card extends Component {
               <h5 className="rel-title-card-body">Habilidades</h5>
               {Object.keys(this.state.skills).map(function(k) {
                 return (
-                  <div key={k} className="rel-body-card-profile-skill d-flex justify-content-between mb-2">
+                  <div
+                    key={k}
+                    className="rel-body-card-profile-skill d-flex justify-content-between mb-2"
+                  >
                     {k} <BarProgres percentage={me.state.skills[k]} />
                   </div>
                 );
@@ -84,7 +87,7 @@ export default class Card extends Component {
             <div className="rel-profile-card-personal-data">
               <h5 className="rel-title-card-body">Proyectos</h5>
               <div className="rel-body-card-profile-proyect d-flex align-content-between flex-wrap">
-                {this.state.proyect.map((key) => {
+                {this.state.proyect.map(key => {
                   return <Chip key={key} nameProyect={key} />;
                 })}
               </div>
