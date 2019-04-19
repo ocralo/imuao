@@ -30,13 +30,10 @@ export default class Login extends Component {
   };
   handleChange = event => {
     console.log(this.state.password + "----" + this.state.email);
-    if (event.target.id === "correo") {
       this.setState({ email: this.email.current.value });
-    } else if (event.target.id === "contraseña") {
       this.setState({
         password: this.password.current.value
       });
-    }
   };
   render() {
     return (
@@ -88,9 +85,7 @@ export default class Login extends Component {
                       </small>
                     </div>
                     <div className="form-group">
-                      <label htmlFor="exampleInputPassword1">
-                        Contraseña
-                      </label>
+                      <label htmlFor="exampleInputPassword1">Contraseña</label>
                       <br />
                       <label className="pure-material-textfield-outlined rel-input">
                         <input

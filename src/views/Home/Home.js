@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./Home.css";
-import Header from "../components/header/Header";
-import NavRigth from "../components/navRigth/NavRigth";
-import Card from "../components/card/Card";
-import ModalCard from "../components/modalCard/ModalCard";
+import Header from "../../components/header/Header";
+import NavRigth from "../../components/navRigth/NavRigth";
+import Card from "../../components/card/Card";
+import ModalCard from "../../components/modalCard/ModalCard";
 import firebase from "firebase";
 
 export default class Home extends Component {
@@ -46,10 +46,9 @@ export default class Home extends Component {
   };
 
   ModalRender(e, userCard) {
-    /*e.setState({
+    e.setState({
       user: userCard
-    });*/
-    console.log(userCard);
+    });
   }
 
   render() {
