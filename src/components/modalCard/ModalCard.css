@@ -1,0 +1,61 @@
+.rel-modal-header {
+  height: 8em;
+  background-image: url("/assets/img/triangulo-fondo-modal.svg");
+  background-color: #ffffff;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.rel-modal-proyect-card{
+    height: 25em;
+}
+
+.rel-imagen-profile-modal-out {
+  margin-top: 2.7em;
+  display: inline-block;
+  position: absolute;
+  height: 7.5em;
+  width: 7.5em;
+  background: #F05545;
+  box-sizing: border-box;
+  -webkit-clip-path: polygon(
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0% 75%,
+    0% 25%
+  );
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.rel-imagen-profile-modal {
+  height: 7em;
+  width: 7em;
+  position: absolute;
+    top: 4px;
+  left: 4px;
+  -webkit-clip-path: polygon(
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0% 75%,
+    0% 25%
+  );
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.rel-body-model-profile {
+  margin-top: 2.5em;
+}
+
+.rel-title-model-body {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.rel-profile-model-personal-data {
+  margin-bottom: 0.5em;
+}
