@@ -1,0 +1,22 @@
+.rel-card-text-tag {
+  margin-bottom: -0.3em;
+  margin-top: -1.2em;
+}
+
+.rel-card-tex-description {
+  height: 3em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.rel-card-title-proyect{
+    background: rgba(76,76,76,0);
+background: -moz-linear-gradient(top, rgba(76,76,76,0) 0%, rgba(76,76,76,0.28) 20%, rgba(66,66,66,0.47) 34%, rgba(19,19,19,0.7) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76,76,76,0)), color-stop(20%, rgba(76,76,76,0.28)), color-stop(34%, rgba(66,66,66,0.47)), color-stop(100%, rgba(19,19,19,0.7)));
+background: -webkit-linear-gradient(top, rgba(76,76,76,0) 0%, rgba(76,76,76,0.28) 20%, rgba(66,66,66,0.47) 34%, rgba(19,19,19,0.7) 100%);
+background: -o-linear-gradient(top, rgba(76,76,76,0) 0%, rgba(76,76,76,0.28) 20%, rgba(66,66,66,0.47) 34%, rgba(19,19,19,0.7) 100%);
+background: -ms-linear-gradient(top, rgba(76,76,76,0) 0%, rgba(76,76,76,0.28) 20%, rgba(66,66,66,0.47) 34%, rgba(19,19,19,0.7) 100%);
+background: linear-gradient(to bottom, rgba(76,76,76,0) 0%, rgba(76,76,76,0.28) 20%, rgba(66,66,66,0.47) 34%, rgba(19,19,19,0.7) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );
+}
