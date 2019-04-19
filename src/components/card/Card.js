@@ -3,7 +3,6 @@ import "./Card.css";
 import Chip from "../chip/Chip";
 import BarProgres from "../barProgres/BarProgres";
 
-
 var me;
 export default class Card extends Component {
   constructor(props) {
@@ -25,7 +24,8 @@ export default class Card extends Component {
   }
 
   componentWillMount() {
-    var aux = [], aux2 = [];
+    var aux = [],
+      aux2 = [];
     me = this;
     Object.keys(me.state.skillsCard).forEach(function(k) {
       aux[k] = me.state.skillsCard[k];
@@ -58,6 +58,8 @@ export default class Card extends Component {
         <div
           className="border mt-4 rel-card-background-top shadow"
           onClick={this.handleClick}
+          data-toggle="modal"
+          data-target=".bd-example-modal-lg"
         >
           <div className="d-flex flex-column align-items-center p-4 rel-title-card-profile text-center">
             <h3 className="rel-text-title-card d-inline-block text-truncate w-100">
@@ -93,7 +95,7 @@ export default class Card extends Component {
                 return (
                   <div
                     key={i}
-                    className="rel-body-card-profile-skill d-flex justify-content-between mb-2"
+                    className="rel-body-card-profile-skill d-flex justify-content-between mb-2 ml-2"
                   >
                     {k} <BarProgres percentage={me.state.skills[k]} />
                   </div>
