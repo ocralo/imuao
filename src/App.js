@@ -28,11 +28,11 @@ const loading = () => (
   
 );
 const Login = Loadable({
-  loader: () => import('./views/Login'),
+  loader: () => import('./views/Login/Login'),
   loading
 });
 const Home = Loadable({
-  loader: () => import("./views/Home"),
+  loader: () => import("./views/Home/Home"),
   loading
 });
 
