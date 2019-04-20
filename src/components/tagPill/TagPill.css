@@ -1,0 +1,15 @@
+.rel-tag{
+    width: 6em;
+    height: 2em;
+}
+
+.rel-tag span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.rel-tag-text {
+  font-weight: 500;
+  padding-left: 0.5em; 
+}
