@@ -17,7 +17,6 @@ export default class Proyect extends Component {
   }
   handleClick(e) {
     me.state.proyectFuntion(me.state.thishome, me.state.card, "none", "block");
-    console.log(me.state.stateDiv);
     //me.state.thishome;
   }
   render() {
@@ -71,6 +70,7 @@ export default class Proyect extends Component {
                           ) {
                             return (
                               <ProyectImageCard
+                                key={i}
                                 titleProyect={
                                   me.props.card.portfolio[key].name
                                 }
@@ -91,20 +91,25 @@ export default class Proyect extends Component {
                 </div>
               </div>
               <div className="col-md-5 ">
-                <iframe
-                  title="proyect"
-                  width="560"
-                  height="315"
-                  src={"https://www.youtube.com/embed/"+ (me.props.proyect.url &&
-                    me.props.proyect.url.slice(
-                      me.props.proyect.url.length-11,
-                      me.props.proyect.url.length )
-                    )}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-                
+                <div className="rel-video-proyect">
+                  <iframe
+                    title="proyect"
+                    width="560"
+                    height="315"
+                    src={
+                      "https://www.youtube.com/embed/" +
+                      (me.props.proyect.url &&
+                        me.props.proyect.url.slice(
+                          me.props.proyect.url.length - 11,
+                          me.props.proyect.url.length
+                        ))
+                    }
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+
                 <div className="mt-4">
                   <h5 className="rel-title-other">
                     Imágenes del proyecto IMUAO
