@@ -5,13 +5,17 @@ import NavRigth from "../../components/navRigth/NavRigth";
 import Card from "../../components/card/Card";
 import ModalCard from "../../components/modalCard/ModalCard";
 import firebase from "firebase";
+import Proyect from "../../components/proyect/Proyect";
 
 export default class Home extends Component {
   constructor() {
     super();
     this.state = {
       card: [],
-      user: {}
+      proyectCard:{},
+      user: {},
+      displayProyect: "none",
+      displayCards:"block"
     };
   }
 
@@ -39,7 +43,6 @@ export default class Home extends Component {
         me.setState({
           card: auxCard
         });
-
         console.log(jsonCard);
       });
     });
@@ -51,18 +54,36 @@ export default class Home extends Component {
     });
   }
 
+  SeeCard(e, userCard,dProyect,dCards,proyectCard) {
+    e.setState({
+      user: userCard,
+      displayProyect: dProyect,
+      displayCards: dCards,
+      proyectCard: proyectCard
+    });
+  }
+
   render() {
+    const divStyle = {
+      display: this.state.displayCards
+    };
     return (
       <div className="container-fluid m-0 p-0 h-100 ">
-        <ModalCard
-          carduser={this.state.user}/>
+        <ModalCard carduser={this.state.user} />
         <div className="row m-0 p-0 w-100 h-100">
           <div className="col-md-2 m-0 p-0">
             <NavRigth />
           </div>
           <div className="col-md-10 m-0 p-0">
-            <Header name="momo" lastName="GG" />
-            <div className="container mt-5">
+            <Header name="" lastName="" />
+            <Proyect
+              stateDiv={this.state.displayProyect}
+              card={this.state.user}
+              thishome={this}
+              proyectFuntion={this.SeeCard}
+              proyect={this.state.proyectCard}
+            />
+            <div className="container mt-5" style={divStyle}>
               <div className="row">
                 <div className="col-12">
                   <div className="row">
@@ -80,6 +101,7 @@ export default class Home extends Component {
                           card={key}
                           modalfunction={this.ModalRender}
                           thishome={this}
+                          proyectFuntion={this.SeeCard}
                         />
                       );
                     })}

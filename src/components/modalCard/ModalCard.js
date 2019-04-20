@@ -23,6 +23,7 @@ export default class ModalCard extends Component {
           role="dialog"
           aria-labelledby="myLargeModalLabel"
           aria-hidden="true"
+          id="modalcard"
         >
           <div className="modal-dialog modal-lg">
             <div className="modal-content">
