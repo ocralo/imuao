@@ -36,7 +36,6 @@ export default class Card extends Component {
 
   handleClick(e) {
     me.state.modalfunction(me.state.thishome, me.state.card);
-    console.log(e.target.className)
   }
 
   render() {
