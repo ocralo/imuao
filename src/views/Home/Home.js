@@ -17,6 +17,7 @@ export default class Home extends Component {
       displayProyect: "none",
       displayCards:"block"
     };
+    this.SeeCard = this.SeeCard.bind(this);
   }
 
   componentDidMount = event => {
@@ -43,7 +44,6 @@ export default class Home extends Component {
         me.setState({
           card: auxCard
         });
-        console.log(jsonCard);
       });
     });
   };
@@ -61,6 +61,7 @@ export default class Home extends Component {
       displayCards: dCards,
       proyectCard: proyectCard
     });
+    console.log(e.state.proyectCard);
   }
 
   render() {

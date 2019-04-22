@@ -12,12 +12,15 @@ export default class Login extends Component {
     this.email = React.createRef();
     this.password = React.createRef();
   }
-  handleSumit = event => {
+  handleSubmit = event => {
     var me = this;
     console.log(me.state.email);
     firebase
       .auth()
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .signInWithEmailAndPassword(
+        this.email.current.value,
+        this.password.current.value
+      )
       .then(function(firebaseUser) {
         console.log("Exito", firebaseUser);
         me.props.history.push("/home");
@@ -60,7 +63,7 @@ export default class Login extends Component {
                       Para usar nuestra aplicacion por favor iniciar sesion
                     </h6>
                   </div>
-                  <form onSubmit={this.handleSumit}>
+                  <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                       <label htmlFor="exampleInputEmail1">
                         Correo electronico

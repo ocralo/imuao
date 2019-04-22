@@ -19,6 +19,7 @@ export default class Proyect extends Component {
     me.state.proyectFuntion(me.state.thishome, me.state.card, "none", "block");
     //me.state.thishome;
   }
+
   render() {
     me = this;
     const divStyle = {
@@ -34,7 +35,7 @@ export default class Proyect extends Component {
                 onClick={this.handleClick}
               />
               <h1 className="text-center text-light w-100 mt-4 rel-text-title-proyect">
-                {this.props.proyect.name}
+                {this.state.proyect.name}
               </h1>
               <div className="rel-img-profile-proyect">
                 <div className="rel-imagen-profile-proyect-out">
@@ -46,22 +47,34 @@ export default class Proyect extends Component {
                 </div>
                 <div className="rel-profile-data-proyect pl-3">
                   <h3 className="text-white">
-                    {this.props.card.name} {this.props.card.lastname}
+                    {this.props.card.name || this.state.card.name}{" "}
+                    {this.props.card.lastname || this.state.card.lastname}
                   </h3>
-                  <p className="text-white">{this.props.card.code}</p>
+                  <p className="text-white">
+                    {this.props.card.code || this.state.card.code}
+                  </p>
                 </div>
               </div>
             </div>
             <div className="row">
               <div className="col-md-5 offset-md-2 rel-text-proyect">
-                <p>{this.props.proyect.description}.</p>
+                <p>
+                  {
+                    this.state.proyect.description&&this.props.proyect.description
+                  }
+                  .
+                </p>
                 <div className="d-flex flex-wrap">
-                  <TagPill tagProyect={me.props.proyect.type} />
+                  <TagPill
+                    tagProyect={
+                      me.state.proyect.type && me.props.proyect.type
+                    }
+                  />
                 </div>
                 <div className="mt-5">
                   <h3 className="rel-title-other">Otros proyectos</h3>
                   <div className="row ml-0">
-                    {this.props.card.portfolio &&
+                    {this.state.card.portfolio &&
                       Object.keys(this.props.card.portfolio).map(
                         (key, i) => {
                           if (
@@ -98,10 +111,10 @@ export default class Proyect extends Component {
                     height="315"
                     src={
                       "https://www.youtube.com/embed/" +
-                      (me.props.proyect.url &&
-                        me.props.proyect.url.slice(
-                          me.props.proyect.url.length - 11,
-                          me.props.proyect.url.length
+                      (me.state.proyect.url &&
+                        me.state.proyect.url.slice(
+                          me.state.proyect.url.length - 11,
+                          me.state.proyect.url.length
                         ))
                     }
                     frameBorder="0"
