@@ -12,10 +12,10 @@ export default class NavRigth extends Component {
           aria-orientation="vertical"
         >
           <div className="ml-4 rel-title-NavRigth">
-            <h1 >IMUAO</h1>
+            <h1 className="w-100">IMUAO</h1>
           </div>
           <a
-            className="nav-link active p-3 rel-nav-link"
+            className="nav-link active p-3 rel-nav-link w-100"
             id="v-pills-home-tab"
             data-toggle="pill"
             href="#v-pills-home"
@@ -23,13 +23,13 @@ export default class NavRigth extends Component {
             aria-controls="v-pills-home"
             aria-selected="true"
           >
-            <div>
+            <div className="d-inline-block text-truncate w-100">
               <i className="far fa-id-badge mr-2 rel-nav-icon" />
               Portafolios
             </div>
           </a>
           <a
-            className="nav-link p-3 rel-nav-link"
+            className="nav-link p-3 rel-nav-link w-100"
             id="v-pills-profile-tab"
             data-toggle="pill"
             href="#v-pills-profile"
@@ -37,13 +37,13 @@ export default class NavRigth extends Component {
             aria-controls="v-pills-profile"
             aria-selected="false"
           >
-            <div>
+            <div className="d-inline-block text-truncate w-100">
               <i className="far fa-user rel-nav-icon mr-2" />
               Perfil
             </div>
           </a>
           <a
-            className="nav-link p-3 rel-nav-link"
+            className="nav-link p-3 rel-nav-link w-100"
             id="v-pills-messages-tab"
             data-toggle="pill"
             href="#v-pills-messages"
@@ -51,7 +51,7 @@ export default class NavRigth extends Component {
             aria-controls="v-pills-messages"
             aria-selected="false"
           >
-            <div>
+            <div className="d-inline-block text-truncate w-100">
               <i className="fas fa-cog mr-2 rel-nav-icon" />
               Configuración
             </div>

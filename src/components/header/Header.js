@@ -16,7 +16,7 @@ export default class Header extends Component {
           <form className="form-inline">
             <i className="fas fa-search rel-search-icon-header" />
             <input
-              className="form-control mr-sm-2 rel-search-input"
+              className="form-control mr-sm-2 rel-search-input d-inline-block text-truncate"
               type="search"
               placeholder="Buscar compañeros, proyectos o habilidades"
               aria-label="Search"

@@ -5,7 +5,6 @@ import BarProgres from "../barProgres/BarProgres";
 
 var me;
 export default class Card extends Component {
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +23,10 @@ export default class Card extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
-
+  /**
+   * Metodo que se ejecuta antes que se renderice el componente en el DOM
+   * en este metodo
+   */
   componentWillMount() {
     var aux = [];
     me = this;
@@ -36,9 +38,12 @@ export default class Card extends Component {
     });
   }
 
+  /**
+   * metodo que se ejecuta cunado se de click en la card y ejecuta la funcion,
+   * para mostrar la modal y enviar los datos para mostrar
+   */
   handleClick(e) {
     this.state.modalfunction(this.state.thishome, this.state.card);
-    console.log(e.target);
   }
 
   render() {
@@ -81,16 +86,20 @@ export default class Card extends Component {
             </div>
             <div
               className="rel-profile-card-personal-data"
-              style={{ height: "7.2em", overflow: "auto" }}
+              style={{
+                height: "7.2em",
+                overflow: "auto"
+              }}
             >
               <h5 className="rel-title-card-body">Habilidades</h5>
               {Object.keys(this.state.skills).map((k, i) => {
                 return (
                   <div
                     key={i}
-                    className="rel-body-card-profile-skill d-flex justify-content-between mb-2 ml-2"
+                    className="rel-body-card-profile-skill d-flex justify-content-between ml-2"
                   >
-                    {k} <BarProgres percentage={me.state.skills[k]} />
+                    <p>{k}</p>
+                    <BarProgres percentage={me.state.skills[k]} />
                   </div>
                 );
               })}
@@ -99,7 +108,6 @@ export default class Card extends Component {
               className="rel-profile-card-personal-data"
               style={{ overflow: "auto" }}
             >
-              
               <h5 className="rel-title-card-body">Proyectos</h5>
               <div className="rel-body-card-profile-proyect d-flex align-content-between flex-wrap">
                 {me.state.proyectCard &&

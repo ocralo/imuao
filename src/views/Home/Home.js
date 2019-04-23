@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import "./Home.css";
+/**Se importa la libreria firebase */
+import firebase from "firebase";
+
+/**
+ * Se importan los componentes que se utilizaran a la vista Home
+ */
 import Header from "../../components/header/Header";
 import NavRigth from "../../components/navRigth/NavRigth";
 import Card from "../../components/card/Card";
 import ModalCard from "../../components/modalCard/ModalCard";
-import firebase from "firebase";
 import Proyect from "../../components/proyect/Proyect";
 
 export default class Home extends Component {
@@ -12,15 +17,17 @@ export default class Home extends Component {
     super();
     this.state = {
       card: [],
-      proyectCard:{},
+      proyectCard: {},
       user: {},
       displayProyect: "none",
-      displayCards:"block"
+      displayCards: "block"
     };
     this.SeeCard = this.SeeCard.bind(this);
   }
-
-  componentDidMount = event => {
+  /**Metodo que se ejecuta antes que se renderice el componente en el DOM
+   * en este metodo se leen los datos de firebase, para luego guardarlo en la variable card
+   */
+  componentWillMount = event => {
     const attemptCard = firebase
       .database()
       .ref()
@@ -47,18 +54,21 @@ export default class Home extends Component {
       });
     });
   };
-
+  /**Metodo que cambia los datos que se enviaran a la modal */
   ModalRender(e, userCard) {
     e.setState({
       user: userCard
     });
   }
-
-  SeeCard(e, userCard, dProyect, dCards, proyectCard) {
+  /**Metodo que cambia los datos que se envian al comoponente proyec,
+   * en el que se recibe los datos del usuario de la card que se mostrara,
+   * si el display de la card o del proyecto esta en bloque o ninguna y
+   * los datos del proyecto que se selecciono */
+  SeeCard(e, userCard, displayProyect, displayCards, proyectCard) {
     e.setState({
       user: userCard,
-      displayProyect: dProyect,
-      displayCards: dCards,
+      displayProyect: displayProyect,
+      displayCards: displayCards,
       proyectCard: proyectCard
     });
   }
@@ -79,7 +89,7 @@ export default class Home extends Component {
             <NavRigth />
           </div>
           <div className="col-md-10 m-0 p-0">
-            <Header name="" lastName=""/>
+            <Header name="" lastName="" />
             <Proyect
               stateDiv={this.state.displayProyect}
               card={this.state.user}

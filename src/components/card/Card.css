@@ -67,3 +67,7 @@
 .rel-profile-card-personal-data {
   margin-bottom: 0.5em;
 }
+
+.rel-body-card-profile-skill p{
+max-width: 20% !important;
+}

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Chip.css";
 
-var me;
 export default class Chip extends Component {
   constructor(props) {
     super(props);
@@ -10,11 +9,16 @@ export default class Chip extends Component {
       thishome: this.props.thishome,
       proyectFuntion: this.props.proyectFuntion,
       proyect: this.props.proyect,
-      card:this.props.card
+      card: this.props.card
     };
 
     this.handleClick = this.handleClick.bind(this);
   }
+
+  /**
+   * metodo que se ejecuta cunado se de click en la chip y ejecuta la funcion,
+   * que mostrara el proyecto
+   */
 
   handleClick(e) {
     this.state.proyectFuntion(
@@ -27,7 +31,6 @@ export default class Chip extends Component {
   }
 
   render() {
-    me = this;
     return (
       <div
         className="rel-chip d-flex align-items-center border rounded-pill m-1 bg-warning shadow-sm"

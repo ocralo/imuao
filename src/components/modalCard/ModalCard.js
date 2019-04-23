@@ -16,7 +16,6 @@ export default class ModalCard extends Component {
   }
 
   render() {
-    var me = this;
     return (
       <div className="rel-modal-card">
         <div
@@ -83,7 +82,7 @@ export default class ModalCard extends Component {
                               >
                                 {key}{" "}
                                 <BarProgres
-                                  percentage={me.props.carduser.skills[key]}
+                                  percentage={this.props.carduser.skills[key]}
                                 />
                               </div>
                             );
@@ -96,6 +95,7 @@ export default class ModalCard extends Component {
                       {this.props.carduser.portfolio &&
                         Object.keys(this.props.carduser.portfolio).map(
                           (key, i) => {
+                            console.log(this.props.carduser);
                             return (
                               <ProyectImageCard
                                 titleProyect={
@@ -109,9 +109,9 @@ export default class ModalCard extends Component {
                                 }
                                 key={i}
                                 thishome={this.state.thishome}
-                                proyectFuntion={this.state.proyectFuntion}
-                                proyect={this.state.carduser.portfolio}
-                                user={this.state.carduser}
+                                proyectFuntion={this.props.proyectFuntion}
+                                proyect={this.props.carduser.portfolio[key]}
+                                user={this.props.carduser}
                               />
                             );
                           }
