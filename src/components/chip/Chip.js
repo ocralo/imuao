@@ -12,17 +12,18 @@ export default class Chip extends Component {
       proyect: this.props.proyect,
       card:this.props.card
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    me.state.proyectFuntion(
-      me.state.thishome,
-      me.state.proyect,
+    this.state.proyectFuntion(
+      this.state.thishome,
+      this.state.card,
       "block",
       "none",
-      me.state.card
+      this.state.proyect
     );
-    console.log(me.state.card)
   }
 
   render() {

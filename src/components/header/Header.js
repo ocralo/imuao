@@ -11,7 +11,7 @@ export default class Header extends Component {
   }
   render() {
     return (
-      <div className="container-fluid p-0 m-0 sticky-top rel-navbar">
+      <div className="container-fluid p-0 m-0 sticky-top rel-navbar ">
         <nav className="navbar navbar-dark shadow-sm ">
           <form className="form-inline">
             <i className="fas fa-search rel-search-icon-header" />

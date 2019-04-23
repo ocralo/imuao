@@ -79,6 +79,7 @@
     position: absolute;
     left: .5em;
     margin-top: .5em; 
+    cursor: pointer;
 }
 
 .rel-video-proyect{

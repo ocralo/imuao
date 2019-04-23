@@ -54,14 +54,13 @@ export default class Home extends Component {
     });
   }
 
-  SeeCard(e, userCard,dProyect,dCards,proyectCard) {
+  SeeCard(e, userCard, dProyect, dCards, proyectCard) {
     e.setState({
       user: userCard,
       displayProyect: dProyect,
       displayCards: dCards,
       proyectCard: proyectCard
     });
-    console.log(e.state.proyectCard);
   }
 
   render() {
@@ -70,13 +69,17 @@ export default class Home extends Component {
     };
     return (
       <div className="container-fluid m-0 p-0 h-100 ">
-        <ModalCard carduser={this.state.user} />
+        <ModalCard
+          carduser={this.state.user}
+          proyectFuntion={this.SeeCard}
+          thishome={this}
+        />
         <div className="row m-0 p-0 w-100 h-100">
           <div className="col-md-2 m-0 p-0">
             <NavRigth />
           </div>
           <div className="col-md-10 m-0 p-0">
-            <Header name="" lastName="" />
+            <Header name="" lastName=""/>
             <Proyect
               stateDiv={this.state.displayProyect}
               card={this.state.user}

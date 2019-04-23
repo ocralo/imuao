@@ -16,4 +16,5 @@ input.form-control.mr-sm-2 {
 
 .rel-navbar {
   background-color: white;
+  z-index: 1100;
 }

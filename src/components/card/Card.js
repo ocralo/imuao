@@ -5,6 +5,7 @@ import BarProgres from "../barProgres/BarProgres";
 
 var me;
 export default class Card extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -21,6 +22,7 @@ export default class Card extends Component {
       thishome: this.props.thishome,
       proyectFuntion: this.props.proyectFuntion
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount() {
@@ -35,13 +37,14 @@ export default class Card extends Component {
   }
 
   handleClick(e) {
-    me.state.modalfunction(me.state.thishome, me.state.card);
+    this.state.modalfunction(this.state.thishome, this.state.card);
+    console.log(e.target);
   }
 
   render() {
     me = this;
     return (
-      <div className="col-md-4 col-sm-10 col-12">
+      <div className="col-md-4 col-sm-10 col-12 mt-5">
         <div
           className="border rounded-bottom rel-card-background-top shadow"
           onClick={this.handleClick}
@@ -76,7 +79,10 @@ export default class Card extends Component {
                 {this.state.code}
               </div>
             </div>
-            <div className="rel-profile-card-personal-data">
+            <div
+              className="rel-profile-card-personal-data"
+              style={{ height: "7.2em", overflow: "auto" }}
+            >
               <h5 className="rel-title-card-body">Habilidades</h5>
               {Object.keys(this.state.skills).map((k, i) => {
                 return (
@@ -89,17 +95,20 @@ export default class Card extends Component {
                 );
               })}
             </div>
-            <div className="rel-profile-card-personal-data">
+            <div
+              className="rel-profile-card-personal-data"
+              style={{ overflow: "auto" }}
+            >
+              
               <h5 className="rel-title-card-body">Proyectos</h5>
               <div className="rel-body-card-profile-proyect d-flex align-content-between flex-wrap">
                 {me.state.proyectCard &&
                   Object.keys(me.state.proyectCard).map((key, i) => {
-                    console.log();
                     return (
                       <Chip
                         key={i}
                         nameProyect={me.state.proyectCard[key].name}
-                        card={this.state.card}
+                        card={me.state.card}
                         proyectFuntion={me.state.proyectFuntion}
                         proyect={me.state.proyectCard[key]}
                         thishome={me.state.thishome}

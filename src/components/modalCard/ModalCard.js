@@ -9,7 +9,9 @@ export default class ModalCard extends Component {
     this.state = {
       carduser: this.props.carduser,
       skillsCard: this.props.carduser.skills,
-      skill: []
+      skill: [],
+      thishome: this.props.thishome,
+      proyectFuntion: this.props.proyectFuntion
     };
   }
 
@@ -106,6 +108,10 @@ export default class ModalCard extends Component {
                                   this.props.carduser.portfolio[key].description
                                 }
                                 key={i}
+                                thishome={this.state.thishome}
+                                proyectFuntion={this.state.proyectFuntion}
+                                proyect={this.state.carduser.portfolio}
+                                user={this.state.carduser}
                               />
                             );
                           }

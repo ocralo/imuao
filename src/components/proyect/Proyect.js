@@ -11,12 +11,19 @@ export default class Proyect extends Component {
       stateDiv: this.props.stateDiv,
       card: this.props.card,
       proyect: this.props.proyect,
+      proyectName:this.props.proyectName,
       thishome: this.props.thishome,
       proyectFuntion: this.props.proyectFuntion
     };
   }
   handleClick(e) {
-    me.state.proyectFuntion(me.state.thishome, me.state.card, "none", "block");
+    me.state.proyectFuntion(
+      me.props.thishome,
+      me.props.card,
+      "none",
+      "block",
+      me.props.card
+    );
     //me.state.thishome;
   }
 
@@ -35,7 +42,7 @@ export default class Proyect extends Component {
                 onClick={this.handleClick}
               />
               <h1 className="text-center text-light w-100 mt-4 rel-text-title-proyect">
-                {this.state.proyect.name}
+                {this.props.proyectName}
               </h1>
               <div className="rel-img-profile-proyect">
                 <div className="rel-imagen-profile-proyect-out">
@@ -47,11 +54,11 @@ export default class Proyect extends Component {
                 </div>
                 <div className="rel-profile-data-proyect pl-3">
                   <h3 className="text-white">
-                    {this.props.card.name || this.state.card.name}{" "}
-                    {this.props.card.lastname || this.state.card.lastname}
+                    {this.props.card.name}{" "}
+                    {this.props.card.lastname }
                   </h3>
                   <p className="text-white">
-                    {this.props.card.code || this.state.card.code}
+                    {this.props.card.code}
                   </p>
                 </div>
               </div>
@@ -60,21 +67,21 @@ export default class Proyect extends Component {
               <div className="col-md-5 offset-md-2 rel-text-proyect">
                 <p>
                   {
-                    this.state.proyect.description&&this.props.proyect.description
+                    this.props.proyect.description&&this.props.proyect.description
                   }
                   .
                 </p>
                 <div className="d-flex flex-wrap">
                   <TagPill
                     tagProyect={
-                      me.state.proyect.type && me.props.proyect.type
+                      me.props.proyect.type && me.props.proyect.type
                     }
                   />
                 </div>
                 <div className="mt-5">
                   <h3 className="rel-title-other">Otros proyectos</h3>
                   <div className="row ml-0">
-                    {this.state.card.portfolio &&
+                    {this.props.card.portfolio &&
                       Object.keys(this.props.card.portfolio).map(
                         (key, i) => {
                           if (
@@ -111,10 +118,10 @@ export default class Proyect extends Component {
                     height="315"
                     src={
                       "https://www.youtube.com/embed/" +
-                      (me.state.proyect.url &&
-                        me.state.proyect.url.slice(
-                          me.state.proyect.url.length - 11,
-                          me.state.proyect.url.length
+                      (me.props.proyect.url &&
+                        me.props.proyect.url.slice(
+                          me.props.proyect.url.length - 11,
+                          me.props.proyect.url.length
                         ))
                     }
                     frameBorder="0"

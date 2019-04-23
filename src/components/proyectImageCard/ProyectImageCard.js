@@ -1,19 +1,38 @@
 import React, { Component } from "react";
 import "./ProyectImageCard.css";
 
+
+var me;
 export default class ProyectImageCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       titleProyect: this.props.titleProyect,
       tagProyect: this.props.tagProyect,
-      descriptionProyect: this.props.descriptionProyect
+      descriptionProyect: this.props.descriptionProyect,
+      thishome: this.props.thishome,
+      proyectFuntion: this.props.proyectFuntion,
+      proyect: this.props.proyect,
+      user:this.props.user
     };
   }
+
+  handleClick(e) {
+    me.state.proyectFuntion(
+      me.state.thishome,
+      me.state.user,
+      "block",
+      "none",
+      me.state.proyect
+    );
+    console.log(me.state.card);
+  }
+
   render() {
+    me = this;
     return (
       <div className="col-md-4 p-1">
-        <div className="card text-white w-100 ">
+        <div className="card text-white w-100 rel-card-proyect-image">
           <img
             src="./assets/img/Image_desktop.png"
             className="card-img"
